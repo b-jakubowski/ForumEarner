@@ -13,9 +13,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const parseTest = () => {
+  const csvFilePath = require("../data/data_test.csv");
+  const Papa = require("papaparse/papaparse.min");
+
+  Papa.parse(csvFilePath, {
+    header: true,
+    download: true,
+    skipEmptyLines: true,
+    complete: (res) => console.log('results:', res)
+  });
+}
+
 
 const Layout = () => {
   const classes = useStyles();
+  parseTest();
 
   return (
     <div className={classes.root}>

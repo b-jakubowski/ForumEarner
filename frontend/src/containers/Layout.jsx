@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Paper } from "@material-ui/core";
+import PieChart from "../components/PieChart";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -71,7 +72,7 @@ const mapAge = ({ data }) => {
   });
 
   return age;
-}
+};
 
 const parseTest = () => {
   const csvFilePath = require("../data/data_test.csv");
@@ -86,8 +87,7 @@ const parseTest = () => {
       dataToCities(res)
     }
   });
-}
-
+};
 
 const Layout = () => {
   const classes = useStyles();
@@ -106,7 +106,9 @@ const Layout = () => {
           <Paper className={classes.paper}>3</Paper>
         </Grid>
         <Grid item xs={12} sm={12} md={8}>
-          <Paper className={classes.paper}>4</Paper>
+          <Paper className={classes.paper} style={{ height: 500 }}>
+            <PieChart />
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={12} md={4}>
           <Paper className={classes.paper}>5</Paper>
@@ -123,7 +125,6 @@ const Layout = () => {
       </Grid>
     </div>
   );
-
 };
 
 export default Layout;

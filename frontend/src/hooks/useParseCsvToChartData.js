@@ -24,7 +24,7 @@ const mapToPieChartData = (val) => {
   return chartVals;
 };
 
-const mapAge = ({ data }) => {
+const setAgeRange = ({ data }) => {
   const age = {};
 
   data.map((d) => {
@@ -67,26 +67,29 @@ const setPieChartData = ({ data }, key) => {
 };
 
 const useParseCsvToChartData = () => {
+  const [loading, setLoading] = useState(false);
   const [age, setAge] = useState([]);
   const [cities, setCities] = useState([]);
   const [contract, setContract] = useState([]);
   const [stack, setStack] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     Papa.parse(csvFilePath, {
       header: true,
       download: true,
       skipEmptyLines: true,
       complete: (res) => {
-        setAge(mapAge(res));
+        setAge(setAgeRange(res));
         setCities(setPieChartData(res, 'location'));
         setContract(setPieChartData(res, 'contract_type'));
         setStack(setPieChartData(res, 'stack'));
+        setLoading(false);
       },
     });
   }, []);
 
-  return [age, cities, contract, stack];
+  return [loading, age, cities, contract, stack];
 };
 
 export default useParseCsvToChartData;

@@ -7,9 +7,9 @@ const PieChart = ({ data, theme }) => (
     sortByValue={true}
     margin={{
       top: 30,
-      right: 60,
-      bottom: 60,
-      left: 60
+      right: 80,
+      bottom: 50,
+      left: 80
     }}
     innerRadius={0.4}
     padAngle={0.7}

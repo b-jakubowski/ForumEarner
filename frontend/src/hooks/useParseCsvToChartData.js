@@ -69,6 +69,77 @@ const setAgeRange = ({ data }) => {
   return mapToPieChartData(age);
 };
 
+const setSalaryRange = ({ data }) => {
+  const salary = {
+    all: {},
+    b2b: {},
+    uop: {},
+    uod: {},
+    uz: {},
+    unknown: {},
+  };
+
+  data.forEach((d) => {
+    salaryRange(d, salary.all);
+    switch(true) {
+      case d.contract_type === 'b2b':
+        salaryRange(d, salary.b2b);
+        break;
+      case d.contract_type === 'uop':
+        salaryRange(d, salary.uop);
+        break;
+      case d.contract_type === 'uod':
+        salaryRange(d, salary.uod);
+        break;
+      case d.contract_type === 'uz':
+        salaryRange(d, salary.uz);
+        break;
+      default:
+        salaryRange(d, salary.unknown);
+        break;
+    }
+  });
+  console.log(salary);
+};
+
+const salaryRange = (field, obj) => {
+  switch (true) {
+    case field.salary < 3000:
+      setKeyValMap(obj, '< 3000');
+      break;
+    case field.salary >= 3000 && field.salary < 4500:
+      setKeyValMap(obj, '3000-4499');
+      break;
+    case field.salary >= 4500 && field.salary < 6000:
+      setKeyValMap(obj, '4500-5999');
+      break;
+    case field.salary >= 6000 && field.salary < 7500:
+      setKeyValMap(obj, '6000-7499');
+      break;
+    case field.salary >= 7500 && field.salary < 9000:
+      setKeyValMap(obj, '7500-8999');
+      break;
+    case field.salary >= 9000 && field.salary < 10500:
+      setKeyValMap(obj, '9000-10499');
+      break;
+    case field.salary >= 10500 && field.salary < 12000:
+      setKeyValMap(obj, '10500-11999');
+      break;
+    case field.salary >= 12000 && field.salary < 15000:
+      setKeyValMap(obj, '12000-14999');
+      break;
+    case field.salary >= 15000 && field.salary < 20000:
+      setKeyValMap(obj, '15000-19999');
+      break;
+    case field.salary >= 20000 && field.salary < 25000:
+      setKeyValMap(obj, '20000-24999');
+      break;
+    default:
+      setKeyValMap(obj, '>25000');
+      break;
+  }
+};
+
 const setPieChartData = ({ data }, key) => {
   const hashMap = {};
 
@@ -97,6 +168,7 @@ const useParseCsvToChartData = () => {
         setCities(setPieChartData(res, 'location'));
         setContract(setPieChartData(res, 'contract_type'));
         setStack(setPieChartData(res, 'stack'));
+        setSalaryRange(res);
         setLoading(false);
       },
     });

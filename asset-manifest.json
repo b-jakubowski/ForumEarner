@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ForumEarner/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/ForumEarner/static/js/main.c12b585d.chunk.js",
+    "main.js.map": "/ForumEarner/static/js/main.c12b585d.chunk.js.map",
+    "runtime-main.js": "/ForumEarner/static/js/runtime-main.f6b2dea3.js",
+    "runtime-main.js.map": "/ForumEarner/static/js/runtime-main.f6b2dea3.js.map",
+    "static/js/2.53b86cfb.chunk.js": "/ForumEarner/static/js/2.53b86cfb.chunk.js",
+    "static/js/2.53b86cfb.chunk.js.map": "/ForumEarner/static/js/2.53b86cfb.chunk.js.map",
+    "index.html": "/ForumEarner/index.html",
+    "precache-manifest.911aa23720a647bb0a7126014a4ad49b.js": "/ForumEarner/precache-manifest.911aa23720a647bb0a7126014a4ad49b.js",
+    "service-worker.js": "/ForumEarner/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/ForumEarner/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.53b86cfb.chunk.js.LICENSE": "/ForumEarner/static/js/2.53b86cfb.chunk.js.LICENSE",
+    "static/media/data.csv": "/ForumEarner/static/media/data.b24e7d4e.csv"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f6b2dea3.js",
+    "static/js/2.53b86cfb.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.c12b585d.chunk.js"
+  ]
+}
